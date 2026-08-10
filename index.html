@@ -1,169 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div>
-        <h1 class="header_text1">Pookie Wanna go out with me 🙂?</h1>
-        <h1 class="header_text">You can yap as much as you like 😊</h1>
-      </div>
-      <div class="gif_container">
-        <img
-          src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
-          alt="Cute animated illustration"
-        />
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Zouzou ❤️</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- المرحلة 1 -->
+    <div class="stage active" id="stage1">
+
+      <div class="emoji">🌸</div>
+
+      <h1>
+        Wesh Zou... khdemtha w coditha spéciale lik 😭❤️
+      </h1>
+
+      <p class="text">
+        Andi moda mkhdmtch coding, rj3tlo 3jalk hhh 😂
+        <br><br>
+        Mhm... whdy rohk، rah kayen chwiya haja khassk tchoufiha 👀
+      </p>
+
+      <button class="btn yes" onclick="showStage('stage2')">
+        Nkmlo? 👀
+      </button>
+
+    </div>
+
+
+    <!-- المرحلة 2 - السؤال 1 -->
+    <div class="stage" id="stage2">
+
+      <div class="emoji">👀</div>
+
+      <h1>
+        Mn glbk raki dayra fia cnfns? 😏
+      </h1>
+
       <div class="buttons">
-        <button class="btn" id="yesButton" onclick="nextPage()">
-          My Pookie 🥰
+
+        <button class="btn yes" onclick="question1Yes()">
+          Hih bien sure ❤️
         </button>
+
         <button
-          class="btn"
-          id="noButton"
-          onmouseover="moveButton()"
-          onclick="moveButton()"
-        >
-          Pretty Please 🥹
+          class="btn no runaway"
+          id="question1No"
+          onmouseenter="runAway('question1No')"
+          onclick="runAway('question1No')">
+          Chwi chwi 😌
         </button>
-        <script>
-          function nextPage() {
-            window.location.href = "yes.html";
-          }
 
-          function moveButton() {
-            var x =
-              Math.random() *
-                (window.innerWidth -
-                  document.getElementById("noButton").offsetWidth) -
-              85;
-            var y =
-              Math.random() *
-                (window.innerHeight -
-                  document.getElementById("noButton").offsetHeight) -
-              48;
-            document.getElementById("noButton").style.left = `${x}px`;
-            document.getElementById("noButton").style.top = `${y}px`;
-          }
-        </script>
       </div>
+
     </div>
-  </body>
-</html>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="./styles.css" />
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        margin: 0;
-        background-color: rgb(189, 225, 122);
-        overflow: auto;
-      }
 
-      .container {
-        text-align: center;
-        padding: 10px;
-        box-sizing: border-box;
-      }
+    <!-- جواب السؤال 1 -->
+    <div class="stage" id="stageQ1">
 
-      .header_text {
-        font-family: "Nunito", sans-serif;
-        font-size: 4vw;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-        margin: 5px 0;
-      }
+      <div class="emoji">😂</div>
 
-      .gif_container {
-        margin: 20px 0;
-      }
+      <p class="message">
+        Albaly hdiri fia cnfns 😉😂😂
+        <br>
+        hia nkmlo tra...
+      </p>
 
-      img {
-        max-width: 100%;
-        height: auto;
-      }
+      <button class="btn yes" onclick="showStage('stage3')">
+        Nkmlo 👀
+      </button>
 
-      .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 20px;
-      }
+    </div>
 
-      .btn {
-        background-color: #ffffff;
-        color: rgb(233, 48, 48);
-        padding: 15px 32px;
-        text-align: center;
-        font-size: 1.5vw;
-        cursor: pointer;
-        border: none;
-        border-radius: 12px;
-        transition: background-color 0.3s ease;
-      }
 
-      .btn:hover {
-        background-color: #f0f0f0;
-      }
+    <!-- السؤال 2 -->
+    <div class="stage" id="stage3">
 
-      .btn:focus {
-        outline: none;
-      }
+      <div class="emoji">🥰</div>
 
-      @media only screen and (max-width: 414px) {
-        .header_text {
-          font-size: 6vw;
-        }
+      <h1>
+        Wesh thby naytlk? 🙄
+      </h1>
 
-        .btn {
-          padding: 10px 20px;
-          font-size: 4vw;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="header_text">Pookie!</h1>
-      <h1 class="header_text">Wanna go out with me 🙂?</h1>
-      <h1 class="header_text">You can yap as much as you want 😊.</h1>
-      <div class="gif_container">
-        <img
-          src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
-          alt="Cute animated illustration"
-        />
-      </div>
       <div class="buttons">
-        <button class="btn" id="yesButton" onclick="nextPage()">
-          My Pookie 🥰
+
+        <button class="btn yes" onclick="question2()">
+          3inia 👁️
         </button>
-        <div style="width: 5"></div>
-        <button class="btn" id="noButton" onmouseover="moveButton()">
-          Pretty Please 🥹
+
+        <button class="btn yes" onclick="question2()">
+          Pookie 🥹
         </button>
+
       </div>
+
     </div>
-    <script>
-      function nextPage() {
-        window.location.href = "yes.html";
+
+
+    <!-- جواب السؤال 2 -->
+    <div class="stage" id="stageQ2">
+
+      <div class="emoji">😏</div>
+
+      <p class="message">
+        Kan albaly htkhiirha a3inia
+        Hdy wa3ra chwi li jaya khmmi mliha
+        hdy nbda nwjd rohi ana 😂😂
+      </p>
+
+      <button class="btn yes" onclick="showStage('stage4')">
+        Li jaya? 👀
+      </button>
+
+    </div>
+
+
+    <!-- السؤال 3 -->
+    <div class="stage" id="stage4">
+
+      <div class="emoji">🙄</div>
+
+      <h1>
+        Wesh tkhyrii? 🙄
+      </h1>
+
+      <div class="buttons">
+
+        <button
+          class="btn no runaway"
+          id="moneyButton"
+          onmouseenter="runAway('moneyButton')"
+          onclick="runAway('moneyButton')">
+          Drahm 💸
+        </button>
+
+        <button class="btn yes" onclick="question3()">
+          Love ❤️
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- جواب السؤال 3 -->
+    <div class="stage" id="stageQ3">
+
+      <div class="emoji">😂❤️</div>
+
+      <p class="message">
+        Sbhan allah khyrti love hih
+        andk sah drahm mlah bsh dk yjiw mea lwe9t 😂😂
+      </p>
+
+      <button class="btn yes" onclick="showStage('stage5')">
+        Nkmlo... mazal 👀
+      </button>
+
+    </div>
+
+
+    <!-- السؤال 4 -->
+    <div class="stage" id="stage5">
+
+      <div class="emoji">❤️</div>
+
+      <h1>
+        3inia wesh li ykhliq mn li bdina nhkiw trtahi maaya? 🫠
+      </h1>
+
+      <p class="hint">
+        Hadi marra ma kayench choix...
+        hab nسمعها منك nti 👀❤️
+      </p>
+
+      <textarea
+        id="answer"
+        placeholder="Ktbi li jay f balek... 🥹❤️">
+      </textarea>
+
+      <br>
+
+      <button class="btn yes" onclick="sendAnswer()">
+        Send 💌
+      </button>
+
+    </div>
+
+
+    <!-- بعد الإجابة -->
+    <div class="stage" id="stageQ4">
+
+      <div class="emoji">🥹❤️</div>
+
+      <p class="message">
+        Hmmm...
+        <br><br>
+        had l-jawab khllani nبتسم wa7di 😂
+        <br>
+        بصح صراحة... عجبني نسمعها منك ❤️
+        <br><br>
+        Mazal kayen wa7ed l7aja...
+      </p>
+
+      <button class="btn yes" onclick="showStage('stage6')">
+        Nrou7o l'final? 👀
+      </button>
+
+    </div>
+
+
+    <!-- المرحلة 6 -->
+    <div class="stage" id="stage6">
+
+      <div class="emoji">💌</div>
+
+      <h1>
+        Zou... ❤️
+      </h1>
+
+      <p class="message">
+        Ma dertch hadchi باش نحرجك،
+        <br>
+        wla باش نحطك في موقف.
+        <br><br>
+
+        Ghir 7بيت نديرلك حاجة مختلفة،
+        حاجة صغيرة خاصة بيك...
+        <br><br>
+
+        W ila rak tبتسمي daba...
+        <br>
+        rah hadchi كامل kan ystahal 😂❤️
+      </p>
+
+      <button class="btn yes" onclick="showStage('stage7')">
+        Mazal wa7ed السؤال 😏
+      </button>
+
+    </div>
+
+
+    <!-- السؤال النهائي -->
+    <div class="stage" id="stage7">
+
+      <div class="emoji">🫠❤️</div>
+
+      <h1>
+        Do you want more of these surprises in the future?
+      </h1>
+
+      <p class="text">
+        Or should I stop doing this? 👀
+      </p>
+
+      <div class="buttons finalButtons">
+
+        <button class="btn yes" onclick="finalYes()">
+          Yes ❤️
+        </button>
+
+        <button
+          class="btn no runaway"
+          id="finalNo"
+          onmouseenter="finalNo()"
+          onclick="finalNo()">
+          No 😭
+        </button>
+
+      </div>
+
+      <p id="finalMessage"></p>
+
+    </div>
+
+
+    <!-- النهاية -->
+    <div class="stage" id="stageFinal">
+
+      <div class="emoji">❤️🥹❤️</div>
+
+      <h1>
+        I knew it, Zouzou ❤️
+      </h1>
+
+      <p class="message">
+        Then I guess...
+        <br><br>
+        you better get ready for more surprises 😏😂
+        <br><br>
+        This was only the beginning.
+        ❤️
+      </p>
+
+      <div class="heart">♥</div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function showStage(id) {
+
+      document
+        .querySelectorAll(".stage")
+        .forEach(stage => {
+          stage.classList.remove("active");
+        });
+
+      document
+        .getElementById(id)
+        .classList.add("active");
+
+      window.scrollTo(0, 0);
+    }
+
+
+    function question1Yes() {
+
+      showStage("stageQ1");
+
+    }
+
+
+    function question2() {
+
+      showStage("stageQ2");
+
+    }
+
+
+    function question3() {
+
+      showStage("stageQ3");
+
+    }
+
+
+    function sendAnswer() {
+
+      const answer =
+        document.getElementById("answer").value.trim();
+
+      if (answer === "") {
+
+        alert(
+          "Eyy Zouzou 😂 لازم تجاوبيني قبل ما نكملو ❤️"
+        );
+
+        return;
+
       }
 
-      function moveButton() {
-        const button = document.getElementById("noButton");
-        const x = Math.random() * (window.innerWidth - button.offsetWidth);
-        const y = Math.random() * (window.innerHeight - button.offsetHeight);
-        button.style.position = "absolute";
-        button.style.left = `${x}px`;
-        button.style.top = `${y}px`;
-      }
-    </script>
-  </body>
-</html> -->
+      showStage("stageQ4");
+
+    }
+
+
+    function runAway(id) {
+
+      const button =
+        document.getElementById(id);
+
+      const maxX =
+        window.innerWidth -
+        button.offsetWidth -
+        20;
+
+      const maxY =
+        window.innerHeight -
+        button.offsetHeight -
+        20;
+
+      const x =
+        Math.max(
+          10,
+          Math.random() * maxX
+        );
+
+      const y =
+        Math.max(
+          10,
+          Math.random() * maxY
+        );
+
+      button.style.position = "fixed";
+
+      button.style.left = x + "px";
+
+      button.style.top = y + "px";
+
+    }
+
+
+    function finalNo() {
+
+      const button =
+        document.getElementById("finalNo");
+
+      const message =
+        document.getElementById("finalMessage");
+
+      message.innerHTML =
+        "La la Zouzou 😂❤️<br>" +
+        "had l'option ma hiach disponible... " +
+        "diri Yes 😭😂";
+
+      runAway("finalNo");
+
+    }
+
+
+    function finalYes() {
+
+      showStage("stageFinal");
+
+    }
+
+  </script>
+
+</body>
+</html>
