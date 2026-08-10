@@ -1,103 +1,279 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  background-color: rgb(189, 225, 122);
+
+  padding: 20px;
+
+  font-family: "Trebuchet MS", Arial, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #ffdce9,
+      #f5a8c5 45%,
+      #c96b98
+    );
+
+  color: white;
+
+  overflow-x: hidden;
 }
 
-#noButton {
-  position: absolute;
-  margin-left: 150px;
-  transition: 0.5s;
+.container {
+  width: 100%;
+  max-width: 700px;
+
+  min-height: 650px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#yesButton {
-  position: absolute;
-  margin-right: 150px;
-}
+.stage {
+  display: none;
 
-.header_text {
-  font-family: "Nunito";
-  font-size: 40px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
+  width: 100%;
+
+  padding: 35px 22px;
+
   text-align: center;
-  margin-top: 2px;
-  margin-bottom: 0;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.17);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 20px 60px
+    rgba(70, 10, 40, 0.25);
+
+  animation: appear 0.5s ease;
 }
-.header_text1 {
-  font-family: "Nunito";
-  font-size: 40px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  margin-top: 90px;
-  margin-bottom: 0;
+
+.stage.active {
+  display: block;
 }
+
+.emoji {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: clamp(27px, 7vw, 45px);
+
+  line-height: 1.35;
+
+  margin:
+    10px 0 20px;
+}
+
+.text,
+.message {
+  font-size: clamp(17px, 4.5vw, 22px);
+
+  line-height: 1.75;
+
+  margin:
+    15px auto 25px;
+
+  max-width: 600px;
+}
+
+.hint {
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  margin-bottom: 15px;
+}
+
 .buttons {
   display: flex;
-  flex-direction: row;
+
   justify-content: center;
+
   align-items: center;
-  margin-top: 20px;
-  margin-left: 20px;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+
+  min-height: 100px;
 }
 
 .btn {
-  background-color: #ffffff;
-  color: rgb(233, 48, 48);
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
   border: none;
-  border-radius: 12px;
-  transition: background-color 0.3s ease;
+
+  border-radius: 16px;
+
+  padding:
+    14px 24px;
+
+  min-width: 145px;
+
+  background: white;
+
+  color: #d62c69;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(60, 10, 35, 0.2);
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
-.gif_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn:hover {
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 25px
+    rgba(60, 10, 35, 0.3);
 }
 
-@media only screen and (max-width: 320px) and (max-height: 568px) {
+.btn.yes {
+  background: #d92e6b;
+
+  color: white;
+}
+
+.btn.no {
+  background: white;
+
+  color: #d92e6b;
+}
+
+textarea {
+  width: 100%;
+
+  min-height: 150px;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  resize: vertical;
+
+  outline: none;
+
+  font-size: 17px;
+
+  font-family: inherit;
+
+  color: #5b1938;
+
+  margin-bottom: 15px;
+}
+
+#finalMessage {
+  margin-top: 25px;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+.heart {
+  font-size: 75px;
+
+  animation:
+    heartbeat 1s infinite;
+}
+
+@keyframes appear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+@keyframes heartbeat {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+@media (max-width: 480px) {
+
   body {
-    height: 100vh;
+    padding: 12px;
   }
 
-  .header_text {
-    font-size: 20px;
+  .container {
+    min-height: 100vh;
   }
 
-  img {
-    height: 60vh;
+  .stage {
+    padding:
+      28px 16px;
+
+    border-radius: 23px;
+  }
+
+  .emoji {
+    font-size: 45px;
+  }
+
+  .buttons {
+    flex-direction: column;
   }
 
   .btn {
-    padding: 10px 18px;
-    font-size: 12px;
-  }
-}
+    width: 90%;
 
-@media only screen and (max-width: 414px) and (max-height: 736px) {
-  body {
-    height: 90vh;
+    min-width: 0;
   }
 
-  .header_text {
-    font-size: 28px;
-  }
-
-  img {
-    height: 60vh;
-  }
-
-  .btn {
-    padding: 15px 25px;
-    font-size: 14px;
-  }
 }
